@@ -1,53 +1,120 @@
-AI Resume Analyzer
+# AI Resume Analyzer
 
-An intelligent web application that analyzes a candidate's resume against a job description to estimate an ATS (Applicant Tracking System) match score. The application extracts text from PDF resumes, compares it with the job requirements, identifies matched and missing skills, and provides suggestions to improve the resume.
+An intelligent web application that evaluates a candidate's resume against a job description to estimate an Applicant Tracking System (ATS) compatibility score. The application extracts text from PDF resumes, compares it with job requirements, identifies matched and missing skills, and provides actionable suggestions to improve the resume.
 
-Features
+## Features
 
-📂 Upload resumes in PDF format
-📝 Enter a job description
-📊 Generate an ATS-style match score
-✅ Identify matched skills
-❌ Highlight missing skills
-💡 Provide resume improvement suggestions
-🔄 Analyze multiple resumes without restarting the application
-🌐 Simple and responsive web interface
-Tech Stack
+* 📄 Upload resumes in PDF format
+* 📝 Enter or paste a job description
+* 📊 Generate an ATS-style match score
+* ✅ Identify matched skills
+* ❌ Highlight missing skills
+* 💡 Receive resume improvement suggestions
+* 🔄 Analyze multiple resumes without restarting the application
+* 🌐 Responsive and user-friendly web interface
 
-Backend: Python, Flask
-Frontend: HTML5, CSS3, Bootstrap 5
-Resume Parsing: PyMuPDF (or pypdf, depending on your setup)
-Text Similarity: RapidFuzz
-Version Control: Git & GitHub
-Project Structure
+## Tech Stack
 
-Resume-Analyzer/ │ ├── app.py ├── analyzer.py ├── parser.py ├── requirements.txt ├── README.md │ ├── templates/ │ ├── index.html │ └── result.html │ ├── static/ │ └── style.css │ └── uploads/
+**Backend**
 
-How It Works
+* Python
+* Flask
 
-Upload a PDF resume.
+**Frontend**
 
-Paste the job description.
+* HTML5
+* CSS3
+* Bootstrap 5
 
-The application extracts text from the resume.
+**Libraries**
 
-RapidFuzz compares the resume with the job description.
+* PyMuPDF (or `pypdf`) – PDF text extraction
+* RapidFuzz – Text similarity and matching
 
-The application:
+**Version Control**
 
-Calculates a similarity score
-Detects matched skills
-Identifies missing skills
-Generates improvement suggestions
-Future Enhancements
+* Git
+* GitHub
 
-User authentication
-Resume ranking for multiple applicants
-AI-powered resume recommendations
-Resume keyword optimization
-Downloadable PDF analysis report
-Interactive dashboard and charts
-Support for DOCX resumes Author
-Maham Faiz Malik
+## Project Structure
+
+```text
+Resume-Analyzer/
+│
+├── app.py
+├── analyzer.py
+├── parser.py
+├── requirements.txt
+├── README.md
+│
+├── templates/
+│   ├── index.html
+│   └── result.html
+│
+├── static/
+│   └── style.css
+│
+└── uploads/
+```
+
+## How It Works
+
+1. Upload a PDF resume.
+2. Paste the job description.
+3. The application extracts text from the uploaded resume.
+4. RapidFuzz compares the resume content with the job description.
+5. The application:
+
+   * Calculates an ATS match score.
+   * Identifies matched skills.
+   * Highlights missing skills.
+   * Provides personalized suggestions to improve the resume.
+
+## Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/mahamfaizmalik1023/Resume-Analyzer.git
+```
+
+2. Navigate to the project directory:
+
+```bash
+cd Resume-Analyzer
+```
+
+3. Install the required dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+4. Run the application:
+
+```bash
+python app.py
+```
+
+5. Open your browser and visit:
+
+```text
+http://127.0.0.1:5000
+```
+
+## Future Enhancements
+
+* User authentication
+* Resume ranking for multiple applicants
+* AI-powered resume recommendations
+* Resume keyword optimization
+* Downloadable PDF analysis reports
+* Interactive analytics dashboard
+* Support for DOCX resumes
+* Integration with Large Language Models (LLMs) for personalized feedback
+
+## Author
+
+**Maham Faiz Malik**
 
 GitHub: https://github.com/mahamfaizmalik1023
