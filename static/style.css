@@ -1,0 +1,19 @@
+body{
+    background:#f5f7fa;
+}
+
+.card{
+    border-radius:20px;
+}
+
+h1{
+    font-weight:bold;
+}
+
+textarea{
+    resize:none;
+}
+
+button{
+    width:220px;
+}
