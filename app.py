@@ -1,27 +1,29 @@
 print("THIS IS MY RESUME ANALYZER")
+
 from flask import Flask, render_template, request
 import os
+import tempfile
 from werkzeug.utils import secure_filename
 
-# Import our own modules (we will create these next)
+# Import our own modules
 from parser import extract_text_from_pdf
 from analyzer import analyze_resume
 
 app = Flask(__name__)
 
-# Upload folder
-UPLOAD_FOLDER = "uploads"
+# Use Vercel's temporary directory
+UPLOAD_FOLDER = tempfile.gettempdir()
 ALLOWED_EXTENSIONS = {"pdf"}
 
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
-# Create uploads folder automatically
-os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-
 
 def allowed_file(filename):
-    return "." in filename and \
-        filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
+    return (
+        "." in filename
+        and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
+    )
+
 
 @app.route("/")
 def home():
@@ -43,12 +45,12 @@ def analyze():
     if not allowed_file(file.filename):
         return "Only PDF files are allowed."
 
-    # Save the uploaded file
+    # Save uploaded file in Vercel's temporary directory
     filename = secure_filename(file.filename)
     filepath = os.path.join(app.config["UPLOAD_FOLDER"], filename)
     file.save(filepath)
 
-    # Extract resume text
+    # Extract text from resume
     resume_text = extract_text_from_pdf(filepath)
 
     # Read job description
@@ -65,7 +67,7 @@ def analyze():
         "result.html",
         result=result,
         resume_text=resume_text,
-        job_description=job_description
+        job_description=job_description,
     )
 
 
